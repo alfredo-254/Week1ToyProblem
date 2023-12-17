@@ -1,27 +1,30 @@
-let userInput=prompt("Enter student marks ");
-function gradeStudentMarks(){
 
-    const marks=parseFloat(userInput);
+const prompt=require("prompt-sync")({sigint:true});
 
-    if(isNaN(marks)|| marks<0|| marks>100){
-        return "Invalid! Please enter valid marks."
-    }
-    else if(marks>79){
-        return "A";
-    }
-    else if(marks>=60){
-        return "B";
-    }
-    else if(marks>=49){
-        return "C";
-    }
-    else if (marks>=40){
-        return "D";
-    }
-    else{
-        return "E";
-    }
+const userInput = prompt("Enter student marks: ")
+const userFloat = parseFloat(userInput);
+
+
+    // Check if the conversion was successful
+if (!isNaN(userFloat)) {
+        console.log("You entered: " + userFloat);
+} else {
+    console.log("Invalid input. Please enter a valid number.");
 }
-const grade=gradeStudentMarks();
-console.log(grade);
-
+generateStudentGrade(userFloat);
+function generateStudentGrade(marks){
+            // Check if marks are within the valid range
+            if (!isNaN(marks) && marks >= 0 && marks <= 100) {
+                if (marks > 79) {
+                    console.log ("Grade: A");
+                } else if (marks >= 60 && marks <= 79) {
+                    console.log ("Grade: B");
+                } else if (marks >= 50 && marks <= 59) {
+                    console.log ("Grade: C");
+                } else if (marks >= 40 && marks <= 49) {
+                    console.log ("Grade: D");
+                } else {
+                    console.log ("Grade: E");
+                }
+            }
+         }
