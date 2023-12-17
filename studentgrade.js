@@ -8,10 +8,12 @@ const userFloat = parseFloat(userInput);
     // Check if the conversion was successful
 if (!isNaN(userFloat)) {
         console.log("You entered: " + userFloat);
+    // call the fuction here so it does not continue to execute if the user enters invalid input.
+        generateStudentGrade(userFloat);
 } else {
     console.log("Invalid input. Please enter a valid number.");
 }
-generateStudentGrade(userFloat);
+
 function generateStudentGrade(marks){
             // Check if marks are within the valid range
             if (!isNaN(marks) && marks >= 0 && marks <= 100) {
@@ -26,5 +28,7 @@ function generateStudentGrade(marks){
                 } else {
                     console.log ("Grade: E");
                 }
+            } else {
+                console.log("input marks between 0 and 100")
             }
          }
